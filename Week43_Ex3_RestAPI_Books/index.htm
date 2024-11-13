@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Clara's Library</title>
+</head>
+<body>
+
+
+
+<div id="app">
+    <div class="jumbotron text-center" style="margin-bottom:0; padding: 25px">
+        <h1>Clara's Library</h1>
+        <p> Add | Retrieve | Delete | Books</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="subtitle">Get All Books</p>
+                <button @click="getAllBooks" type="button">Show All Books</button>
+                <p></p>
+                <p class="subtitle">HTTP Response Message</p>
+                {{addMessage}}
+            </div>
+
+            <div class="col-md-3">
+                <div class="button-group">
+                    <p> Get by Id</p>
+                    <input v-model="book.id" placeholder="Id" type="number">
+                    <button @click="getById(book.id)" type="button" >Get Book by Id</button>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p> Add a book </p>
+                <input v-model="book.title" placeholder="Title" type="text">
+                <input v-model="book.price" placeholder="Price" type="number">
+                <button @click="addBook()">Add a Book</button>
+            </div>
+            <div class="col-md-3">
+                <p class="subtitle">Delete by Id</p>
+                <input v-model="deleteId" placeholder="Id" type="number">
+                <button @click="deleteById()" type="button">Delete Book by Id</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show table with requested data -->
+     <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="book in books" :key="book.id">
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> 
+
+    <script src="index.js"></script>
+</body>
+</html>

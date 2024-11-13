@@ -1,0 +1,20 @@
+/* Ensure buttons are stacked vertically with space between them */
+.container {
+    padding: 25px;
+}
+
+.container .button-group button {
+    display: block !important;
+    margin-bottom: 10px !important; /* Space between buttons */
+    width: 100% !important; /* Make buttons take up the full width */
+}
+
+/* Optional: Add some padding to inputs for consistent spacing */
+input {
+    margin-bottom: 10px; /* Space between input fields */
+    width: 100%; /* Make inputs full width */
+}
+
+p {
+    font-weight: bold; /* Make text bold */
+}
